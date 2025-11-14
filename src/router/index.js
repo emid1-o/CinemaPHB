@@ -6,9 +6,23 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: () => import('@/views/dashboard.vue')
+      component: () => import('@/views/homePage.vue')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('@/views/loginPage.vue')
+    },
+    {
+      path:'/sessoes',
+      name: 'sessoes',
+      component: () => import('@/views/sessoesPage.vue')
     }
   ],
 })
 
 export default router
+
+
+
+
