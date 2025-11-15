@@ -1,44 +1,40 @@
-# classroom-components
+# Sistema de Reserva de Cinema (Parnaíba)
 
-This template should help get you started developing with Vue 3 in Vite.
+Este projeto é um sistema web fullstack para a reserva online de poltronas de cinema. O projeto foi desenvolvido para modernizar o processo de compra de ingressos em um cinema local, substituindo a necessidade de compra exclusivamente presencial.
 
-## Recommended IDE Setup
+A plataforma permite que os usuários consultem os filmes em cartaz, visualizem o mapa de assentos da sala em tempo real e escolham seus lugares com antecedência, recebendo um comprovante digital da reserva.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Visão Geral da Arquitetura
 
-## Recommended Browser Setup
+O projeto utiliza uma arquitetura desacoplada ("headless"), com um backend em Django servindo uma API RESTful e um frontend em Vue.js consumindo essa API.
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+* **Backend:** Django REST Framework
+* **Frontend:** Vue.js
 
-## Customize configuration
+---
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+## Tecnologias Utilizadas
 
-## Project Setup
+### Backend
+* Python 3
+* Django
+* Django REST Framework (DRF)
+* DRF Token Authentication (para autenticação de API)
+* Django CORS Headers (para comunicação entre domínios)
 
-```sh
-npm install
-```
+### Frontend
+* Vue.js 3 (Composition API com `<script setup>`)
+* Vue Router
+* Axios (para requisições HTTP)
+* Bootstrap 5 (para estilização e layout)
 
-### Compile and Hot-Reload for Development
+---
 
-```sh
-npm run dev
-```
+## Funcionalidades Principais
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+* **Autenticação de Usuário:** Sistema completo de Registro (`/api/registro/`) e Login (`/api/login/`) via Token.
+* **Listagem de Filmes:** O backend expõe uma lista de filmes em cartaz.
+* **Visualização de Sessões:** O frontend consome os filmes e exibe as sessões (horários) disponíveis para cada um.
+* **Mapa de Assentos Interativo:** Ao selecionar uma sessão, o sistema carrega o mapa da sala, diferenciando visualmente poltronas livres, ocupadas e selecionadas.
+* **Reserva Segura:** A rota de criação de reserva (`/api/reservas/`) é protegida e exige um Token de autenticação, garantindo que apenas usuários logados possam reservar.
+* **Gerenciamento via Admin:** O Django Admin (`/admin/`) vem pré-configurado para que o administrador possa cadastrar novos Filmes, Salas, Poltronas e Sessões.
