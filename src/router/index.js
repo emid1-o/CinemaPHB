@@ -14,10 +14,16 @@ const router = createRouter({
       component: () => import('@/views/loginPage.vue')
     },
     {
-      path:'/sessoes',
+      path: '/sessao/:id',
+      props: true,
       name: 'sessoes',
       component: () => import('@/views/sessoesPage.vue')
-    }
+    },
+    {
+      path: '/registro',
+      name: 'registro',
+      component: () => import('@/views/registroPage.vue')
+    },
   ],
 })
 
